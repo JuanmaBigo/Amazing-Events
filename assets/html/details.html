@@ -34,10 +34,11 @@
                                 Events</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link btn btn-light rounded-0 nav-btn" href="./past_events.html">Past Events</a>
+                            <a class="nav-link btn btn-light rounded-0 nav-btn" href="./past_events.html">Past
+                                Events</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link btn btn-light rounded-0 nav-btn" href="#">Contact</a>
+                            <a class="nav-link btn btn-light rounded-0 nav-btn" href="./contact.html">Contact</a>
                         </li>
                         <li class="nav-item px-2">
                             <a class="nav-link btn btn-light rounded-0 nav-btn" href="./stats.html">Stats</a>
@@ -50,22 +51,23 @@
     </header>
 
     <main class="d-flex flex-column align-items-center justify-content-center">
-        <form class="form py-3" action="./show_data.html" method="get">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name">
+
+            <div class="card row gap-3 d-flex align-items-center justify-content-center details-container">
+                <div class="col-md-4">
+                    <img src="../media/Feria de comidas7.jpg" class="img-fluid" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Festival of the collectivities</h5>
+                        <p class="card-text">Enjoy your favorite dishes from different countries in a unique event for the whole family.</p>
+                        <p class="card-text">Date: 2021-12-12</p>
+                        <p class="card-text">Place: Room A</p>
+                        <p class="card-text">Capacity: 45000</p>
+                        <p class="card-text">Assistance: 42756</p>
+                        <p class="card-text">Price: US$5</p>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="inputEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="email">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-                <label for="textarea" class="form-label">Message</label>
-                <textarea class="form-control" id="textarea" rows="3" name="message"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </div>
     </main>
 
     <footer class="container-fluid d-flex py-1 align-items-center justify-content-start gap-2 px-5">

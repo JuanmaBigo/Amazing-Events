@@ -77,3 +77,10 @@ footer a img{
 .form{
     width: 20rem;
 }
+
+.details-container{
+    width: 70%;
+}
+.details-container img{
+    object-fit: cover;
+}
