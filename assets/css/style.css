@@ -16,11 +16,13 @@
         text-transform: uppercase;
         font-size: 0.9rem;
         font-weight: 500;
+        color: #2D3237;
     }
 }
 
 .nav-btn {
-    color: #2D3237;
+    background-color: #2D3237;
+    color: white;
 }
 
 .nav-size {
@@ -83,4 +85,32 @@ footer a img{
 }
 .details-container img{
     object-fit: cover;
+}
+.table{
+    width: 80%;
+    margin: 0 auto;
+}
+td{
+   height: 1.7rem;
+   padding: 0;
+}
+
+.table-title{
+    background-color: #2D3237 !important;
+    color: #fff ;
+    font-weight: 600;
+
+}
+th{
+    background-color: #cf2b7a57 !important;
+    font-weight: 400;
+}
+
+.btn-primary{
+ background-color: #2D3237 !important;
+}
+
+th, td{
+    align-items: center;
+
 }
