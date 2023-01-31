@@ -31,7 +31,7 @@ for (let cardInfo of pastCards) {
         <p class="card-text">${cardInfo.description}</p>
         <div class="d-flex container-fluid align-self-end justify-content-between align-items-center">
             <p class="mb-0">Price: US$${cardInfo.price}</p>
-            <a href="../html/details.html" class="btn btn-primary">See More</a>
+            <a href="../html/details.html" class="btn btn-primary see-more">See More</a>
         </div>
     </div>
 </div>`
