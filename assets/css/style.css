@@ -48,16 +48,16 @@
 
 .filters{
     background-color: #cf2b7a57;
+    user-select: none;
 }
 
 .btn-search{
-    background-color: white;
-    color: #C10861;
-    border: #C10861 1px solid;
+    background-color: white !important;
+    color: #C10861 !important;
+    border: #C10861 1px solid !important;
 }
 .btn-search:hover{
-    background-color: #C10861;
-    color: white;
+    cursor: default;
 }
 
 h1 {
