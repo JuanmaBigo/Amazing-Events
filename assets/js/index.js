@@ -52,14 +52,13 @@ checksContainer.addEventListener('change', (event) => {
     printCards(filteredCards);
 
     if (filteredCategories.length === 0 && searchInput.value === '') {
-        printCards(cardsInfo);
+        filteredCards = cardsInfo;
     } else if (filteredCategories.length === 0) {
         filteredCards = filterCardsByName(cardsInfo, searchInput.value);
-        printCards(filteredCards);
     } else if (searchInput.value === '') {
         filteredCards = filterCardsByCategory(cardsInfo, filteredCategories);
-        printCards(filteredCards);
     }
+    printCards(filteredCards);
 
     printAlertMessage(filteredCards);
 })
@@ -95,7 +94,7 @@ function printAlertMessage(filteredList) {
     if (filteredList.length === 0) {
         cardContainer.innerHTML = `<div class="alert alert-danger" role="alert">
         No results found for your search
-      </div>`
+        </div>`
     }
 }
 
