@@ -1,13 +1,14 @@
-import { printCards,filterCardsByCategory, filterCardsByName, printAlertMessage, createCategoriesChecks } from '../module/functions.js'
+import { printCards, filterCardsByCategory, filterCardsByName, printAlertMessage, createCategoriesChecks } from '../module/functions.js'
 
 const cardContainer = document.querySelector('.card-container');
 let cardsInfo = data.events;
 
-printCards(cardsInfo, cardContainer);
+const detailsLocation = './assets/html/details.html';
+printCards(cardsInfo, cardContainer, detailsLocation);
 
 const checksContainer = document.querySelector('.checks');
 createCategoriesChecks(cardsInfo, checksContainer);
-
+console.log(detailsLocation);
 
 let filteredCategories = [];
 checksContainer.addEventListener('change', (event) => {
@@ -27,14 +28,13 @@ checksContainer.addEventListener('change', (event) => {
     } else if (searchInput.value === '') {
         filteredCards = filterCardsByCategory(cardsInfo, filteredCategories);
     }
-    printCards(filteredCards, cardContainer);
+    printCards(filteredCards, cardContainer, detailsLocation);
 
     printAlertMessage(filteredCards, cardContainer);
 })
 
 
 const searchInput = document.querySelector('.search-input');
-const searchButton = document.querySelector('.btn-search');
 
 searchInput.addEventListener('keyup', (event) => {
     let filteredCards = filterCardsByName(cardsInfo, event.target.value);
@@ -49,7 +49,7 @@ searchInput.addEventListener('keyup', (event) => {
     else if (filteredCategories.length === 0) {
         filteredCards = filterCardsByName(cardsInfo, event.target.value);
     }
-    printCards(filteredCards, cardContainer);
+    printCards(filteredCards, cardContainer, detailsLocation);
 
     printAlertMessage(filteredCards, cardContainer);
 })
