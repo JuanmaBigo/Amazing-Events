@@ -55,3 +55,63 @@ export function formatDate(date) {
     let dateObject = new Date(year, month, day);
     return dateObject;
 }
+
+
+export function sortCategories(cardList) {
+    const categories = cardList.map(card => card.category)
+    const uniqueCategories = [...new Set(categories)];
+    uniqueCategories.sort();
+    return uniqueCategories;
+}
+
+export function revenues(cardList, uniqueCategories) {
+    let revenuesArray = [];
+    for (let i = 0; i < uniqueCategories.length; i++) {
+        let profit = 0;
+        for (let card of cardList) {
+            
+            if (card.category === uniqueCategories[i]) {
+                if (card.estimate !== undefined){
+                    profit += card.price * card.estimate;
+                }else{
+                    profit += card.price * card.assistance;
+                }
+            }
+        }
+        revenuesArray.push(profit);
+    }
+    return revenuesArray;
+}
+
+export function percentageOfAttendance(cardList, uniqueCategories) {
+    let percentageArray = [];
+    for (let i = 0; i < uniqueCategories.length; i++) {
+        let percentage = 0;
+        for (let card of cardList) {
+            if (card.category === uniqueCategories[i]) {
+                if (card.estimate !== undefined){
+                percentage += (card.estimate / card.capacity * 100);
+                }else{
+                    percentage += (card.assistance / card.capacity * 100);
+                }
+            }
+        }
+        percentageArray.push(percentage);
+    }
+
+    let quantityOfEachCategory = [];
+    for (let i = 0; i < uniqueCategories.length; i++) {
+        quantityOfEachCategory[i] = 0;
+        for (let card of cardList) {
+            if (card.category === uniqueCategories[i])
+                quantityOfEachCategory[i]++;
+        }
+    }
+
+    let averagePercentageArray = [];
+    for (let i = 0; i < uniqueCategories.length; i++) {
+        averagePercentageArray[i] = percentageArray[i] / quantityOfEachCategory[i];
+    }
+    return averagePercentageArray;
+
+}
