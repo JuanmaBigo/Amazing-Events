@@ -14,7 +14,6 @@ export function printCards(cardList, containerToPrint, detailsLocation) {
     </div>`;
     }
     containerToPrint.innerHTML = cards;
-    console.log(detailsLocation);
 }
 
 export function filterCardsByCategory(cardList, categories) {

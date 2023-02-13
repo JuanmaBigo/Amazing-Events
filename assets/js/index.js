@@ -1,14 +1,23 @@
 import { printCards, filterCardsByCategory, filterCardsByName, printAlertMessage, createCategoriesChecks } from '../module/functions.js'
 
 const cardContainer = document.querySelector('.card-container');
-let cardsInfo = data.events;
+const checksContainer = document.querySelector('.checks');
 
 const detailsLocation = './assets/html/details.html';
-printCards(cardsInfo, cardContainer, detailsLocation);
 
-const checksContainer = document.querySelector('.checks');
-createCategoriesChecks(cardsInfo, checksContainer);
-console.log(detailsLocation);
+let cardsInfo = []
+
+
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+    .then(response => response.json())
+    .then(data => {
+        cardsInfo = data.events;
+        printCards(cardsInfo, cardContainer, detailsLocation);
+        createCategoriesChecks(cardsInfo, checksContainer);
+    })
+    .catch(error => console.log(error));
+
+
 
 let filteredCategories = [];
 checksContainer.addEventListener('change', (event) => {

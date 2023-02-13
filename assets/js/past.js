@@ -1,15 +1,25 @@
 import { printCards, filterCardsByCategory, filterCardsByName, printAlertMessage, createCategoriesChecks, formatDate } from '../module/functions.js'
 
-let cardsInfo = data.events;
-let currentDate = data.currentDate;
-
-
+let cardsInfo = [];
 let pastCards = [];
-for (let card of cardsInfo) {
-    if (formatDate(card.date) < formatDate(currentDate)) {
-        pastCards.push(card);
-    }
-}
+
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+    .then(response => response.json())
+    .then(data => {
+        let currentDate = data.currentDate;
+        cardsInfo = data.events;
+        for (let card of cardsInfo) {
+            if (formatDate(card.date) < formatDate(currentDate)) {
+                pastCards.push(card);
+            }
+        }
+        printCards(pastCards, cardContainer, detailsLocation);
+        createCategoriesChecks(pastCards, checksContainer);
+    })
+    .catch(error => console.log(error));
+
+
+
 
 const detailsLocation = './details.html';
 const cardContainer = document.querySelector('.card-container');
