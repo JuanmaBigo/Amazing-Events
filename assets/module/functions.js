@@ -115,3 +115,62 @@ export function percentageOfAttendance(cardList, uniqueCategories) {
     return averagePercentageArray;
 
 }
+
+export function createTable1(highestPercentageOfAttendance, lowestPercentageOfAttendance, largerCapacity) {
+    let table1 = ` 
+<thead>
+<tr>
+<th scope="col" colspan="3" class="table-title">Event statistics</th>
+</tr>
+<tr>
+<th>Event with the highest percentage of attendance</th>
+<th>Event with the lowest percentage of attendance</th>
+<th>Event with larger capacity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${highestPercentageOfAttendance.name} ${(highestPercentageOfAttendance.assistance / highestPercentageOfAttendance.capacity * 100).toFixed(2)}%</td>
+<td>${lowestPercentageOfAttendance.name} ${(lowestPercentageOfAttendance.assistance / lowestPercentageOfAttendance.capacity * 100).toFixed(2)}%</td>
+<td>${largerCapacity.name} ${largerCapacity.capacity}</td>
+</tr>
+</tbody>
+`;
+
+    return table1;
+}
+
+export function createTableStats(uniqueCategories, revenues, percentageOfAttendance) {
+    let statistics = stats(uniqueCategories, revenues, percentageOfAttendance);
+
+    let table = `
+<thead>
+<tr>
+    <th scope="col" colspan="3" class="table-title">Upcoming events statistics by category</th>
+</tr>
+<tr>
+    <th>Categories</th>
+    <th>Revenues</th>
+    <th>Percentage of attendance</th>
+</tr>
+</thead>
+<tbody>
+${statistics}
+</tbody>
+`;
+    return table;
+}
+
+export function stats(uniqueCategories, revenues, percentageOfAttendance) {
+    let stats = '';
+    for (let i = 0; i < uniqueCategories.length; i++) {
+        stats += `
+            <tr>
+            <td>${uniqueCategories[i]}</td>
+            <td>US$ ${revenues[i]}</td>
+            <td>${percentageOfAttendance[i].toFixed(2)}%</td>
+            </tr>`
+    }
+
+    return stats;
+}
