@@ -1,5 +1,9 @@
 import { printCards, filterCardsByCategory, filterCardsByName, printAlertMessage, createCategoriesChecks, formatDate } from '../module/functions.js'
 
+const detailsLocation = './details.html';
+const cardContainer = document.querySelector('.card-container');
+const checksContainer = document.querySelector('.checks');
+
 let cardsInfo = [];
 let upcomingCards = [];
 
@@ -18,16 +22,6 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
     })
     .catch(error => console.log(error));
 
-
-
-
-const detailsLocation = './details.html';
-const cardContainer = document.querySelector('.card-container');
-printCards(upcomingCards, cardContainer, detailsLocation);
-
-
-const checksContainer = document.querySelector('.checks');
-createCategoriesChecks(upcomingCards, checksContainer);
 
 
 let filteredCategories = [];
