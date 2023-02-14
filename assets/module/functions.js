@@ -140,13 +140,17 @@ export function createTable1(highestPercentageOfAttendance, lowestPercentageOfAt
     return table1;
 }
 
-export function createTableStats(uniqueCategories, revenues, percentageOfAttendance) {
+export function createTableStats(uniqueCategories, revenues, percentageOfAttendance, time) {
     let statistics = stats(uniqueCategories, revenues, percentageOfAttendance);
-
+    if (time === 'past'){
+        time = 'Past';
+    }else if(time === "upcoming"){
+        time = 'Upcoming';
+    }
     let table = `
 <thead>
 <tr>
-    <th scope="col" colspan="3" class="table-title">Upcoming events statistics by category</th>
+    <th scope="col" colspan="3" class="table-title">${time} events statistics by category</th>
 </tr>
 <tr>
     <th>Categories</th>

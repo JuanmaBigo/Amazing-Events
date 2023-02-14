@@ -36,8 +36,8 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
         let percentageOfAttendancePast = percentageOfAttendance(pastCards, uniqueCategoriesPast);
 
         let table1 = createTable1(highestPercentageOfAttendance, lowestPercentageOfAttendance, largerCapacity);
-        let table2 = createTableStats(uniqueCategoriesUpcoming, revenuesUpcoming, percentageOfAttendanceUpcoming);
-        let table3 = createTableStats(uniqueCategoriesPast, revenuesPast, percentageOfAttendancePast);
+        let table2 = createTableStats(uniqueCategoriesUpcoming, revenuesUpcoming, percentageOfAttendanceUpcoming, 'upcoming');
+        let table3 = createTableStats(uniqueCategoriesPast, revenuesPast, percentageOfAttendancePast, 'past');
 
         let table = table1 + table2 + table3;
         tableContainer.innerHTML = table;
